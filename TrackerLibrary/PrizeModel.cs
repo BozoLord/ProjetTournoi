@@ -12,6 +12,11 @@ namespace TrackerLibrary
     public class PrizeModel
     {
         /// <summary>
+        /// Identifiant unique du prix
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// N° dans le classement
         /// </summary>
         public int PlaceNumber { get; set; }
@@ -30,5 +35,26 @@ namespace TrackerLibrary
         /// Pourcentage à partir duquel est calculé la somme remportée par le concurrent a cette position
         /// </summary>
         public double PricePercentage { get; set; }
+
+        public PrizeModel()
+        {
+
+        }
+
+        public PrizeModel(string placeName, string placeNumber, string prizeAmount, string prizePercentage)
+        {
+            PlaceName = placeName;
+
+            int placeNumberValue = 0;
+            int.TryParse(placeNumber, out placeNumberValue);
+            PlaceNumber = placeNumberValue;
+
+            decimal prizeAmountValue = 0;
+            decimal.TryParse(prizeAmount, out prizeAmountValue);
+            PrizeAmount = prizeAmountValue;
+
+            double prizePercentageValue = 0;
+            double.TryParse(prizePercentage, out prizePercentageValue);
+        }
     }
 }

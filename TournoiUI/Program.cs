@@ -16,7 +16,12 @@ namespace TournoiUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TournamentDashboardForm());
+
+            // Initialisation de la connection a la database
+            TrackerLibrary.GlobalConfig.InitializeConnections(true, true);
+            Application.Run(new CreatePrizeForm());
+
+            // Application.Run(new TournamentDashboardForm());
         }
     }
 }
