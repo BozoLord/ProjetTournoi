@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrackerLibrary;
+using TrackerLibrary.DataAccess;
+using TrackerLibrary.Models;
 
 namespace TournoiUI
 {
@@ -29,7 +31,7 @@ namespace TournoiUI
                     prizePercentageValue.Text
                     );
 
-                foreach (IDataonnection db in GlobalConfig.Connections)
+                foreach (IDataConnection db in GlobalConfig.Connections)
                 {
                     db.CreatePrize(model);
                 }
